@@ -10,3 +10,5 @@ class Solution {
     return num;
   }
 }
+// yoinked from https://leetcode.com/problems/number-complement/discuss/1649400/6-Lines-Easy-Java-Solution-or-100-faster
+// just a note here so i can look back and learn wtf is XOR
