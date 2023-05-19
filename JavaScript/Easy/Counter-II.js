@@ -2,14 +2,14 @@
  * @param {integer} init
  * @return { increment: Function, decrement: Function, reset: Function }
  */
-var createCounter = function(init) {
-    var ans = init || 0;
-    return {
-        increment: () => ++ans,
-        decrement: () => --ans,
-        reset: () => ans = init,
-    }
-};
+const createCounter = function (init) {
+  let ans = init || 0
+  return {
+    increment: () => ++ans,
+    decrement: () => --ans,
+    reset: () => (ans = init)
+  }
+}
 
 /**
  * const counter = createCounter(5)
