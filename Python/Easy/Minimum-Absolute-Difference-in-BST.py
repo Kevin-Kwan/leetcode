@@ -20,8 +20,8 @@ class Solution(object):
         return min
         
     def inorder(self, node):
-            if (node is None):
-                return
-            self.inorder(node.left)
-            self.sortedList.append(node.val)
-            self.inorder(node.right)
+        if (node is None):
+            return
+        self.inorder(node.left)
+        self.sortedList.append(node.val)
+        self.inorder(node.right)
