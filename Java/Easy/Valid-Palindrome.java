@@ -1,14 +1,27 @@
 class Solution {
     public boolean isPalindrome(String s) {
-        String noPunctSpace = s.replaceAll("\\s|[^a-zA-Z0-9]","");
-        String newS = noPunctSpace.toLowerCase();
-        boolean answer = true;
-        for (int i = 0; i<(newS.length()-(newS.length()/2));i++) {
-            if (newS.charAt(i)!=newS.charAt(newS.length()-1-i)) {
-                answer = false;
-                break;
+        if (s.isEmpty()) {
+            return true;
+        }
+        s = s.toLowerCase();
+        int i = 0;
+        int j = s.length()-1;
+        while (i<=j) {
+            char charI = s.charAt(i);
+            char charJ = s.charAt(j);
+            if (!Character.isLetterOrDigit(charI)) {
+                i++;
+            }
+            else if (!Character.isLetterOrDigit(charJ)) {
+                j--;
+            } else {
+                if (Character.toLowerCase(charI)!=Character.toLowerCase(charJ)) {
+                    return false;
+                }
+                i++;
+                j--;
             }
         }
-        return answer;
+        return true;
     }
 }
