@@ -15,13 +15,13 @@ class Solution:
         max_amount = 0
         while queue:
             node = queue.pop(0)
+            if node is None:
+                continue
             if node not in visited:
                 visited.add(node)
                 hashmap[node.val] = hashmap.get(node.val,0)+1
-                if node.left is not None:
-                    queue.append(node.left)
-                if node.right is not None:
-                    queue.append(node.right)
+                queue.append(node.left)
+                queue.append(node.right)
         # print(hashmap)
         for key, value in hashmap.items():
             if value > max_amount:
