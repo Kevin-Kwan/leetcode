@@ -1,14 +1,29 @@
 class Solution:
     def answerQueries(self, nums: List[int], queries: List[int]) -> List[int]:
         nums.sort()
+        n = len(nums)
         answer = []
+        self.runningSum = []
+        self.runningSum.append(nums[0])
+        for i in range(1,n):
+            self.runningSum.append(self.runningSum[i-1]+nums[i])
         for query in queries:
-            counter = 0
-            runningSum = 0
-            for num in nums:
-                if runningSum+num>query:
-                    break
-                runningSum+=num
-                counter+=1
-            answer.append(counter)
+            index = self.binarySearch(query)
+            answer.append(index)
         return answer
+        
+    def binarySearch(self, query):
+        left = 0
+        right = len(self.runningSum) - 1
+        while left < right:
+            mid = (left + right + 1) // 2
+            if self.runningSum[mid] <= query:
+                if self.runningSum[mid] == query:
+                    return mid + 1
+                left = mid
+            else:
+                right = mid - 1
+        if self.runningSum[right] > query:
+            return 0
+        else:
+            return right + 1
