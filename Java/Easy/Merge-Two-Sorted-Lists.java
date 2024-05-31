@@ -27,24 +27,11 @@ class Solution {
             }
             currPtr = currPtr.next;
         }
-        while (list1 !=null || list2 !=null) {
-            if (list1 != null) {
-                if (currPtr == null) {
-                    currPtr = list1;
-                    list1 = list1.next;
-                }
-                currPtr.next = list1;
-                list1 = list1.next;
-            }
-            if (list2 != null) {
-                if (currPtr == null) {
-                    currPtr = list2;
-                    list2 = list2.next;
-                }
-                currPtr.next = list2;
-                list2 = list2.next;
-            }
-            currPtr = currPtr.next;
+        if (list1 != null) {
+            currPtr.next = list1;
+        }
+        if (list2 != null) {
+            currPtr.next = list2;
         }
         return dummyHead.next;
     }
