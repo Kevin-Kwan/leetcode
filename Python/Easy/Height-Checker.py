@@ -1,12 +1,7 @@
-class Solution(object):
-    def heightChecker(self, heights):
-        """
-        :type heights: List[int]
-        :rtype: int
-        """
+class Solution:
+    def heightChecker(self, heights: List[int]) -> int:
         expected = sorted(heights)
         numMismatch = 0
         for i in range(len(heights)):
-            if (heights[i]!=expected[i]):
-                numMismatch+=1
+            numMismatch+=(heights[i]!=expected[i])
         return numMismatch
