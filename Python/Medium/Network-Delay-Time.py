@@ -10,10 +10,9 @@ class Solution:
         ans = 0
         while heap:
             dist, node = heapq.heappop(heap)
-            ans = dist
             if node not in visited:
                 visited.add(node)
+                ans = dist
                 for target, time in adj[node]:
-                    if target not in visited:
-                        heapq.heappush(heap,[dist+time,target])
+                    heapq.heappush(heap,[dist+time,target])
         return ans if len(visited) == n else -1
